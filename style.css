@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-image: url("bg.jpg");
+    background-size: cover;
+}
+table{
+    background-color: brown;
+    border: 1px solid black;
+    position: absolute;
+    left: 24.3vw;
+    margin: auto;
+}
+td{
+    height: 20.75vh;
+    width: 10vw;
+    border: 1px solid black;
+    background-color: green;
+}
+#playerTable{
+    bottom: 0;
+}
+canvas{
+    border: 1px solid black;
+    background-color: white;
+    position: absolute;
+    left: 35vw;
+    top: 10.5vw;
+    width: 30vw;
+    height: 60vh;
+    
+}
+#roll{
+    position: absolute;
+    left: 24.35vw;
+    top: 10.5vw;
+    height: 27.45vw;
+    width: 10.95vw;
+    border: none;
+    border-right: 1vw solid brown;
+}
+td{
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 5vw;
+}
