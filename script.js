@@ -3,8 +3,9 @@ canvas.width = 800;
 canvas.height = 800;
 var ctx = canvas.getContext("2d");
 var playerRolls = []
-const COMBINATIONS = ["Szemét","Pár","Drill","2 Pár","Kis Póker","Full","Kis Sor","Nagy Póker"]
-var fajdalom = [0,0,0,0,0,0,0,0]
+const COMBINATIONS = ["Szemét","Pár","Drill","2 Pár","Kis Póker","Full","Kis Sor","Nagy Sor","Nagy Póker"]
+var valaszthato = [0,0,0,0,0,0,0,0,0]
+var ertekek = [0,0,0,0,0,0,0,0,0]
 function RandomNum(){
     randomNum = Math.floor(Math.random()*6)+1;
     return randomNum;
@@ -41,49 +42,84 @@ function DrawSix() {
     DrawCircle(600,345) 
     DrawCircle(200,345) 
 }
-function Choose(gomb,num) {
+function Szin() {
     gombok = document.getElementsByClassName("valasztasgomb");
+
     for (let i = 0; i < gombok.length; i++) {
-        if( fajdalom[i] == 1){
+        if(valaszthato[i] == 1){
             gombok[i].style.backgroundColor = "yellow";
         }else{
             gombok[i].style.backgroundColor = "aqua";
         }
     }
+}
+function Choose(gomb,num) {
+    Szin()
     gomb.style.backgroundColor = "red"; 
 }
 function Ellenorzes(){
-    fajdalom = [0,0,0,0,0,0,0,0]
-    fajdalom[0] = 1
-    if(Pair(2) == true){
-        fajdalom[1] = 1
+    valaszthato = [0,0,0,0,0,0,0,0,0]
+    valaszthato[0] = 1
+    if(Pair(2,false) == true){
+        valaszthato[1] = 1
     }
-    if(Pair(3) == true){
-        fajdalom[2] = 1
+    if(Pair(3,false) == true){
+        valaszthato[2] = 1
     }
-    if(Pair(4) == true){
-        fajdalom[4] = 1
+    if(Pair(1,true) == true){
+        valaszthato[3] = 1
     }
-    if(Pair(5) == true){
-        fajdalom[7] = 1
+    if(Pair(4,false) == true){
+        valaszthato[4] = 1
+    }
+    if(Pair(5,false) == true){
+        valaszthato[7] = 1
     }
 }
-function Pair(asd){
-    var asd = asd
+function CalcValue(type,score) {
+    ertekek[0] = 0
+    if (type == 2) {
+        ertekek[1] = score*2
+    }if (type == 3) {
+        ertekek[2] = score*3
+    }if (type == 4) {
+        //ertekek[3] = score*4
+    }if (type == 5) {
+        ertekek[4] = score*4
+    }if (type == 9) {
+        ertekek[8] = 50
+    }
+    for (let i = 0; i < ertekek.length; i++) {
+        document.getElementById("combination"+(i+1)).innerHTML = COMBINATIONS[i]+"("+ertekek[i]+")"
+    }
+}
+function Pair(pairs,doublePair){
     var elemek = [1,2,3,4,5,6]
     var ismetlesek = [0,0,0,0,0,0]
     for (let i = 0; i < playerRolls.length; i++) {
         for (let j = 0; j < elemek.length; j++) {
             if (elemek[j] == playerRolls[i]) {
                 ismetlesek[j]++
-            }
-            
-        }
-        
+            }  
+       }
     }
-    for (let i = 0; i < ismetlesek.length; i++) {
-        if (ismetlesek[i] >= asd) {
+    if (doublePair == true) {
+        var pairCount = 0
+        for (let i = 0; i < ismetlesek.length; i++) {
+            if (ismetlesek[i] >= 2) {
+                pairCount++    
+            }
+        }
+        if (pairCount == 2){
             return true
+        }
+    }
+    else{
+        for (let i = 0; i < ismetlesek.length; i++) {
+            if (ismetlesek[i] >= pairs) {
+                CalcValue(pairs,elemek[i])
+                return true
+            }
         }
     }
     return false
@@ -120,14 +156,14 @@ function PlayerTable(playerRolls) {
     }
 }
 function Roll(){
-    if (playerRolls.length < 5){
-        for (let i = 0; i < 5; i++) {
-            randomNum = RandomNum();
-            playerRolls.push(randomNum)
-            PlayerTable(playerRolls)
-            DrawDice(randomNum);
-        }
-    }else{
-        alert("")
+    playerRolls = []
+    ertekek = [0,0,0,0,0,0,0,0,0]
+    for (let i = 0; i < 5; i++) {
+        randomNum = RandomNum();
+        playerRolls.push(randomNum)
+        PlayerTable(playerRolls)
+        DrawDice(randomNum);
+        Szin();
+        Ellenorzes()
     }
 }

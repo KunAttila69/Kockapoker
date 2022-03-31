@@ -13,6 +13,7 @@ body{
     position: absolute;
     left: 24.3vw;
     margin: auto;
+    height: 18%;
 }
 .tablazat td{
     height: 20.75vh;
@@ -30,16 +31,15 @@ canvas{
     background-color: white;
     position: absolute;
     left: 35vw;
-    top: 10.5vw;
+    top: 21.55vh;
     width: 30vw;
-    height: 60vh;
-    
+    height: 58vh;
 }
 #roll{
     position: absolute;
     left: 24.35vw;
-    top: 10.5vw;
-    height: 27.45vw;
+    top: 21.65vh;
+    height: 56.75vh;
     width: 10.95vw;
     border: none;
     border-right: 1vw solid brown;
@@ -47,14 +47,14 @@ canvas{
 #pontozo{
     position: absolute;
     left: 65.125vw;
-    top: 10.55vw;
+    top: 21.65vh;
     background-color: brown;
     padding-left: 0.5vw;
 }
 #pontozo td{
     width: 5vw;
     border: 1px solid black;
-    height: 5.75vh;
+    height: 5.81vh;
     padding: 0;
     background-color: aqua;
 }
