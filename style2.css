@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    height: 100vh;
+    background: repeating-linear-gradient(
+      240deg,
+      rgb(90, 1, 1)0px,
+      rgb(90, 1, 1) 10px,
+      rgb(97, 0, 0) 10px,
+      rgb(97, 0, 0) 50px
+    );
+}
+
+  div[class*="col-"] {
+    background-image: url("cardbg.png");
+    background-repeat: no-repeat;
+    background-size: 180px 190px;
+    background-repeat: none;
+    background-position: center;
+    height: 130px;
+    width: 180px;
+    margin: 2px;  
+    border-radius: 3px;}
+    
+
+.btn{
+  margin:auto;
+}
+
+.table{
+  width: 250px;
+  height: 150px;
+  background-color: blanchedalmond;
+
+  float: right;
+}
