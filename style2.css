@@ -36,3 +36,14 @@ body {
 
   float: right;
 }
+@media screen and (min-width: 800px) {
+  div[class*="col-"] {
+    width: 100px;
+  }
+}
+.valasztasgomb{
+  display: block;
+  border: none;
+  width: 100%;
+  height: 100%;
+}

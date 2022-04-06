@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kockapóker</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style3.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-1 col-md-1 col-sm-1 col-xs-1 mx-auto"></div>
+            <div class="col-xl-1 col-md-1 col-sm-1 col-xs-1 mx-auto"></div>
+            <div class="col-xl-1 col-md-1 col-sm-1 col-xs-1 mx-auto"></div>
+            <div class="col-xl-1 col-md-1 col-sm-1 col-xs-1 mx-auto"></div>
+            <div class="col-xl-1 col-md-1 col-sm-1 col-xs-1 mx-auto"></div>
+        </div>
+    </div>
+    <div class="container row">
+        <div class="table-responsive-md">
+            <table class="table">
+                <tr >
+                    <th>#</th>
+                    <th>Játékos</th>
+                    <th>Gép</th>
+                </tr>
+                <tr>
+                    <td id="combination1">Szemét(0)</td>
+                    <td><button class="valasztasgomb" onclick="Choose(this,0)"></button></td>
+                    <td><div class="botCombinations"></div></td>
+                </tr>
+                <tr >
+                    <td id="combination2">Pár(0)</td>
+                    <td><button class="valasztasgomb" onclick="Choose(this,1)"></button></td>
+                    <td><div class="botCombinations"></div></td>
+                </tr>
+                <tr>
+                    <td id="combination3">Drill(0)</td>
+                    <td><button class="valasztasgomb" onclick="Choose(this,2)"></button></td>
+                    <td><div class="botCombinations"></div></td>
+                </tr>
+                <tr >
+                    <td id="combination4">Két Pár(0)</td>
+                    <td><button class="valasztasgomb" onclick="Choose(this,3)"></button></td>
+                    <td><div class="botCombinations"></div></td>
+                </tr>
+                <tr >
+                    <td id="combination5">Kis Póker(0)</td>
+                    <td><button class="valasztasgomb" onclick="Choose(this,4)"></button></td>
+                    <td><div class="botCombinations"></div></td>
+                </tr>
+                <tr>
+                    <td id="combination6">Full(0)</td>
+                    <td><button class="valasztasgomb" onclick="Choose(this,5)"></button></td>
+                    <td><div class="botCombinations"></div></td>
+                </tr>
+                <tr >
+                    <td id="combination7">Kis Sor(0)</td>
+                    <td><button class="valasztasgomb" onclick="Choose(this,6)"></button></td>
+                    <td><div class="botCombinations"></div></td>
+                </tr>
+                <tr>
+                    <td id="combination8">Nagy Sor(0)</td>
+                    <td><button class="valasztasgomb" onclick="Choose(this,7)"></button></td>
+                    <td><div class="botCombinations"></div></td>
+                </tr>
+                <tr>
+                    <td id="combination9">Nagy Póker(0)</td>
+                    <td><button class="valasztasgomb" onclick="Choose(this,8)"></button></td>
+                    <td><div class="botCombinations"></div></td>
+                </tr>
+                <tr>
+                   <td colspan="2" class="text-center"> <button type="button" id="roll" onclick="Roll()" class="btn btn-secondary">Dobás</button></td>
+                   <td colspan="1" class="text-center"> <button type="button" id="submit" disabled="true" onclick="Submit()" class="btn btn-secondary">Válasz megerősítése</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div id="playerCell1" class="col-xl-1 col-md-3 mx-auto"><canvas id="canvas0"></canvas></div>
+            <div id="playerCell2" class="col-xl-1 col-md-3 mx-auto"><canvas id="canvas1"></canvas></div>
+            <div id="playerCell3" class="col-xl-1 col-md-3 mx-auto"><canvas id="canvas2"></canvas></div>
+            <div id="playerCell4" class="col-xl-1 col-md-3 mx-auto"><canvas id="canvas3"></canvas></div>
+            <div id="playerCell5" class="col-xl-1 col-md-3 mx-auto"><canvas id="canvas4"></canvas></div>
+        </div>
+
+    </div>
+   
+
+</body>
+
+</html>

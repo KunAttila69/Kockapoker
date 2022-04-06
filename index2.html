@@ -31,63 +31,63 @@
                     <th>Gép</th>
                 </tr>
                 <tr >
-                    <td>Szemét</td>
-                    <td> </td>
-                    <td> </td>
-                </tr>
-                <tr >
-                    <td>Pár</td>
-                    <td> </td>
-                    <td> </td>
-                </tr>
-                <tr>
-                    <td>Drill</td>
-                    <td> </td>
+                    <td id="combination1">Szemét</td>
+                    <td><button class="valasztasgomb" onclick="Choose(this,0)"></button></td>
                     <td> </td>
                 </tr>
                 <tr >
-                    <td>Két Pár</td>
+                    <td id="combination2">Pár</td>
+                    <td><button class="valasztasgomb" onclick="Choose(this,0)"></button></td>
                     <td> </td>
+                </tr>
+                <tr>
+                    <td id="combination3">Drill</td>
+                    <td><button class="valasztasgomb" onclick="Choose(this,0)"></button></td>
                     <td> </td>
                 </tr>
                 <tr >
-                    <td>Kis Póker</td>
-                    <td> </td>
-                    <td> </td>
-                </tr>
-                <tr>
-                    <td>Full</td>
-                    <td> </td>
+                    <td id="combination4">Két Pár</td>
+                    <td><button class="valasztasgomb" onclick="Choose(this,0)"></button></td>
                     <td> </td>
                 </tr>
                 <tr >
-                    <td>Kis Sor</td>
-                    <td> </td>
-                    <td> </td>
-                </tr>
-                <tr>
-                    <td>Nagy Sor</td>
-                    <td> </td>
+                    <td id="combination5">Kis Póker</td>
+                    <td><button class="valasztasgomb" onclick="Choose(this,0)"></button></td>
                     <td> </td>
                 </tr>
                 <tr>
-                    <td>Nagy Póker</td>
+                    <td id="combination6">Full</td>
+                    <td><button class="valasztasgomb" onclick="Choose(this,0)"></button></td>
                     <td> </td>
+                </tr>
+                <tr >
+                    <td id="combination7">Kis Sor</td>
+                    <td><button class="valasztasgomb" onclick="Choose(this,0)"></button></td>
                     <td> </td>
                 </tr>
                 <tr>
-                   <td colspan="3" class="text-center"> <button type="button" class="btn btn-secondary">Dobás</button></td>
+                    <td id="combination8">Nagy Sor</td>
+                    <td><button class="valasztasgomb" onclick="Choose(this,0)"></button></td>
+                    <td> </td>
+                </tr>
+                <tr>
+                    <td id="combination9">Nagy Póker</td>
+                    <td><button class="valasztasgomb" onclick="Choose(this,0)"></button></td>
+                    <td> </td>
+                </tr>
+                <tr>
+                   <td colspan="3" class="text-center" onclick="Roll()"> <button type="button" class="btn btn-secondary">Dobás</button></td>
                 </tr>
             </table>
         </div>
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-xl-1 col-md-3 mx-auto"></div>
-            <div class="col-xl-1 col-md-3 mx-auto"></div>
-            <div class="col-xl-1 col-md-3 mx-auto"></div>
-            <div class="col-xl-1 col-md-3 mx-auto"></div>
-            <div class="col-xl-1 col-md-3 mx-auto"></div>
+            <div id="playerCell1" class="col-xl-1 col-md-3 mx-auto"></div>
+            <div id="playerCell2" class="col-xl-1 col-md-3 mx-auto"></div>
+            <div id="playerCell3" class="col-xl-1 col-md-3 mx-auto"></div>
+            <div id="playerCell4" class="col-xl-1 col-md-3 mx-auto"></div>
+            <div id="playerCell5" class="col-xl-1 col-md-3 mx-auto"></div>
 
         </div>
 
@@ -95,5 +95,5 @@
    
 
 </body>
-
+<script src="script.js"></script>
 </html>
