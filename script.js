@@ -2,7 +2,8 @@ var playerRolls = []
 var enemyRolls = []
 var playerPoints = 0
 var enemyPoints = 0
-const COMBINATIONS = ["Szemét","Pár","Drill","2 Pár","Kis Póker","Full","Kis Sor","Nagy Sor","Nagy Póker"]
+var turn = 0
+const COMBINATIONS = ["Szemét","Pár","Drill","Két Pár","Kis Póker","Full","Kis Sor","Nagy Sor","Nagy Póker"]
 var valaszthato = [1,0,0,0,0,0,0,0,0]
 var ertekek = [0,0,0,0,0,0,0,0,0]
 var gombErtek = 0
@@ -63,15 +64,25 @@ function Szin(){
 function Choose(gomb,gombNum) {
     Szin()
     gombErtek = gombNum
-    if (valaszthato[gombNum] == 1){
+    if (valaszthato[gombNum] == 1 && document.getElementById("roll").disabled == true){
         document.getElementById("submit").disabled = false
         gomb.style.backgroundColor = "red"; 
     }else{
         document.getElementById("submit").disabled = true
     }
 }
+function HandleEnemy(){
+    gombok = document.getElementsByClassName("botCombinations");
+    bestValue = Math.max(ertekek)
+    if(bestValue != 0){
+        bestCombination = ertekek.indexOf(bestValue)
+        gombok[bestCombination].style.backgroundColor = "red";
+    }else{
+        gombok[0].style.backgroundColor = "red";
+    }
+    enemyPoints += bestValue
+}
 function Ellenorzes(){
-    valaszthato = [1,0,0,0,0,0,0,0,0]
     if(Check2Same() == true){0
         valaszthato[1] = 1
     }if(Check3Same() == true){
@@ -116,13 +127,23 @@ function CalcValue(type,score) {
 function FindPairs() {
     var elemek = [1,2,3,4,5,6]
     var ismetlesek = [0,0,0,0,0,0]
-    for (let i = 0; i <= playerRolls.length; i++) {
-        for (let j = 0; j < elemek.length; j++) {
-            if (elemek[j] == playerRolls[i]) {
-                ismetlesek[j]++
-            }  
-       }
-    }
+    if(turn == 0){
+        for (let i = 0; i <= playerRolls.length; i++) {
+            for (let j = 0; j < elemek.length; j++) {
+                if (elemek[j] == playerRolls[i]) {
+                    ismetlesek[j]++
+                }  
+           }
+        }
+    }else if(turn == 1){
+        for (let i = 0; i <= enemyRolls.length; i++) {
+            for (let j = 0; j < elemek.length; j++) {
+                if (elemek[j] == enemyRolls[i]) {
+                    ismetlesek[j]++
+                }  
+           }
+        }
+    } 
     return ismetlesek
 }
 function Check2Same() {
@@ -218,6 +239,9 @@ function Check5Same() {
 //Dobás értékének rajzolása a canvasra
 function DrawDice(value){
     switch (value) {
+        case 0:
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            break;
         case 1:
             DrawOne()
             break;
@@ -239,23 +263,50 @@ function DrawDice(value){
             break;              
     }
 }
-function Roll(){
+function PlayerRoll(){
     playerRolls = []
     ertekek = [0,0,0,0,0,0,0,0,0]
     valaszthato = [1,0,0,0,0,0,0,0,0]
     for (let i = 0; i < 5; i++) {
-        DefineCanvas("canvas"+i)
+        DefineCanvas("PlayerCanvas"+i)
         randomNum = RandomNum();
         playerRolls.push(randomNum)
-        DrawDice(randomNum); 
+        DrawDice(randomNum);
+        
+        DefineCanvas("EnemyCanvas"+i)
+        DrawDice(0);
     }
     document.getElementById("roll").disabled = true;
     Ellenorzes();
     Szin();
 }
+function EnemyRoll(){
+    enemyRolls = []
+    ertekek = [0,0,0,0,0,0,0,0,0]
+    valaszthato = [1,0,0,0,0,0,0,0,0]
+    turn = 1
+    for (let i = 0; i < 5; i++) {
+        DefineCanvas("EnemyCanvas"+i)
+        randomNum = RandomNum();
+        enemyRolls.push(randomNum)
+        DrawDice(randomNum); 
+    }
+    Ellenorzes()
+    HandleEnemy()
+}
 function Submit(){
+    playerRolls = []
+    ertekek = [0,0,0,0,0,0,0,0,0]
+    valaszthato = [0,0,0,0,0,0,0,0,0]
+    playerPoints += ertekek[gombErtek]
+    for (let i = 0; i < 5; i++) {
+        DefineCanvas("PlayerCanvas"+i)
+        DrawDice(0);
+    }
+    Ellenorzes();
+    Szin();
     document.getElementById("roll").disabled = false;
     document.getElementById("submit").disabled = true;
-    playerPoints += ertekek[gombErtek]
-    console.log(playerPoints)
+    EnemyRoll()
+    turn = 0
 }
