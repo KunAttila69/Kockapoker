@@ -15,8 +15,8 @@ function RandomNum(){
 }
 function DefineCanvas(canvas) {
     canvas = document.getElementById(canvas);
-    canvas.width = canvas.style.width;
-    canvas.height = canvas.style.height;
+    canvas.width = 800;
+    canvas.height = 800;
     ctx = canvas.getContext("2d");
 }
 function DrawCircle(x,y){
@@ -62,17 +62,19 @@ function Szin(){
     }
 }
 function Choose(gomb,gombNum) {
-    Szin()
-    gombErtek = gombNum
-    if (valaszthato[gombNum] == 1 && document.getElementById("roll").disabled == true){
-        document.getElementById("submit").disabled = false
-        gomb.style.backgroundColor = "red"; 
-    }else{
-        document.getElementById("submit").disabled = true
+    if (turn == 0) {
+        Szin()
+        gombErtek = gombNum
+        if (valaszthato[gombNum] == 1 && document.getElementById("roll").disabled == true){
+            document.getElementById("submit").disabled = false
+            gomb.style.backgroundColor = "red"; 
+        }else{
+            document.getElementById("submit").disabled = true
+        }
     }
 }
 function HandleEnemy(){
-    gombok = document.getElementsByClassName("botCombinations");
+    Ellenorzes()
     bestValue = 0
     for (let i = 0; i < ertekek.length; i++) {
         if(ertekek[i] >= bestValue){
@@ -81,9 +83,9 @@ function HandleEnemy(){
     }
     if(bestValue != 0){
         bestCombination = ertekek.indexOf(bestValue)
-        gombok[bestCombination].style.backgroundColor = "red";
+        document.getElementsByClassName("botCombinations")[bestCombination].style.backgroundColor = "red";
     }else{
-        gombok[0].style.backgroundColor = "red";
+        document.getElementsByClassName("botCombinations")[0].style.backgroundColor = "red";
     }
     enemyPoints += bestValue
 }
@@ -216,7 +218,12 @@ function CheckFull() {
     return false
 }
 function CheckKisSor() {
-    if (playerRolls.includes(1) && playerRolls.includes(2) && playerRolls.includes(3) && playerRolls.includes(4) && playerRolls.includes(5)){
+    if (turn == 0) {
+        rolls = playerRolls
+    }else{
+        rolls = enemyRolls
+    }
+    if (rolls.includes(1) && rolls.includes(2) && rolls.includes(3) && rolls.includes(4) && rolls.includes(5)){
         CalcValue(7,1)
         return true
     }
@@ -224,7 +231,12 @@ function CheckKisSor() {
     return false
 }
 function CheckNagySor() {
-    if (playerRolls.includes(2) && playerRolls.includes(3) && playerRolls.includes(4) && playerRolls.includes(5) && playerRolls.includes(6)){
+    if (turn == 0) {
+        rolls = playerRolls
+    }else{
+        rolls = enemyRolls
+    }
+    if (rolls.includes(2) && rolls.includes(3) && rolls.includes(4) && rolls.includes(5) && rolls.includes(6)){
         CalcValue(8,1)
         return true
     }
@@ -269,6 +281,10 @@ function DrawDice(value){
     }
 }
 function PlayerRoll(){
+    turn = 0
+    for (let i = 0; i < valaszthato.length; i++) {
+        document.getElementsByClassName("botCombinations")[i].style.backgroundColor = "white"
+    }
     playerRolls = []
     ertekek = [0,0,0,0,0,0,0,0,0]
     valaszthato = [1,0,0,0,0,0,0,0,0]
@@ -302,13 +318,13 @@ function EnemyRoll(){
     Szin();
     ertekek = [0,0,0,0,0,0,0,0,0]
     valaszthato = [1,0,0,0,0,0,0,0,0]
-    document.getElementsByClassName("botCombinations").style.backgroundColor = "white"
+    document.getElementById("botPoints").innerHTML = enemyPoints
 }
 function Submit(){
     playerRolls = []
+    playerPoints += ertekek[gombErtek]
     ertekek = [0,0,0,0,0,0,0,0,0]
     valaszthato = [0,0,0,0,0,0,0,0,0]
-    playerPoints += ertekek[gombErtek]
     for (let i = 0; i < 5; i++) {
         DefineCanvas("PlayerCanvas"+i)
         DrawDice(0);
@@ -318,5 +334,5 @@ function Submit(){
     document.getElementById("roll").disabled = false;
     document.getElementById("submit").disabled = true;
     EnemyRoll()
-    turn = 0
+    document.getElementById("playerPoints").innerHTML = playerPoints
 }
