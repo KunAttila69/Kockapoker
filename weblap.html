@@ -45,6 +45,126 @@
       <span class="dot" onclick="currentSlide(3)"></span>
     </div>
   </div>
+
+  <div class="rules">
+    <h1>Játékszabályok:</h1>
+
+    <ul>
+      <li>
+        A játékot 5 darab 6 oldalú dobókockával játsszuk, és a játékosok felváltva dobnak az összes kockával.
+
+      </li>
+      <li>
+
+        Minden dobás után a játékosnak ki kell töltenie a lentebb megadott szerkezetű táblázat valamely
+        mezőjét.
+
+      </li>
+      <li>
+        Ha a dobása megfelel az adott mező szabályának, akkor beírja oda a dobott kombinációban
+        szereplő kockák pontértékét (például, ha van 2 db 3-as a dobások között, a párhoz beírhat 6 pontot).
+      </li>
+      <li>
+
+        Csak üres mezőbe lehet beírni, azaz, ha egy mezőt kitöltünk, azt az adott játékban már nem lehet
+        megváltoztatni.
+      </li>
+      <li>
+        Ha egy eredmény többféle kombinációnak is megfelel, akkor a játékos eldönti, hogy
+        melyiket választja (például 4 db 1-est lehet párnak is írni 2 pontért, vagy drillnek 3 pontért, vagy kis
+        pókernek 4 pontért).
+      </li>
+      <li>
+        Lehetséges, hogy egyik kombinációnak sem felelnek meg a kidobott értékek.
+        Ilyenkor is ki kell választani egy mezőt, és oda 0 pontot írni.
+      </li>
+      <li>
+        A játéknak akkor van vége, amikor minden játékos kitöltötte a táblázat minden mezőjét. Ekkor
+        összeszámoljuk a pontértékeket és az győz, aki a legnagyobb pontszámot érte el.
+      </li>
+     
+    </ul>
+  
+    <table class="table"> 
+      <tr>
+        <th colspan="2">
+          Érvényes kombinációk (a táblázat mezői):
+        </th>
+      </tr> 
+      <tr>
+        <td>
+          Szemét
+        </td>
+        <td>
+          tetszőleges kombinációban az 5 kocka pontértékeinek összege ?
+        </td>
+      </tr>
+      <tr>
+        <td>
+          2 egyforma / pár
+        </td>
+        <td>
+          két egyforma érték összege
+        </td>
+      </tr>
+      <tr>
+        <td>
+          3 egyforma / drill
+        </td>
+        <td>
+          három egyforma érték összege
+        </td>
+      </tr>
+      <tr>
+        <td>
+          2 pár
+        </td>
+        <td>
+          két különböző értékből két-két egyforma érték összege
+        </td>
+      </tr>
+      <tr>
+        <td>
+          4 egyforma / kis póker
+        </td>
+        <td>
+          négy egyforma érték összege
+        </td>
+      </tr>
+      <tr>
+        <td>
+          2 + 3 egyforma / full
+        </td>
+        <td>
+          két egyforma érték és három másik egyforma érték összege
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Kis sor
+        </td>
+        <td>
+          1,2,3,4,5-ös értékek - 15 pont
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Nagy sor 
+        </td>
+        <td>
+          2,3,4,5,6-os értékek - 20 pont
+        </td>
+      </tr>
+      <tr>
+        <td>
+          5 egyforma / nagy póker
+        </td>
+        <td>
+          öt egyforma érték - 50 pont
+        </td>
+      </tr>
+    </table>
+</div>
 </body>
 
 <script src="webscript.js"></script> <!-- javascript kapcsolása a weblaphoz -->
