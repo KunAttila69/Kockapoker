@@ -1,0 +1,75 @@
+*{
+    margin: 0;
+    padding: 0;
+    max-height: 65%;
+}
+body {
+    height: 100vh;
+    background: repeating-linear-gradient(
+      240deg,
+      rgb(90, 1, 1) 0px,
+      rgb(90, 1, 1) 10px,
+      rgb(97, 0, 0) 10px,
+      rgb(97, 0, 0) 50px
+    );
+    overflow: hidden;
+}
+
+div[class*="col-"] {
+  background-color: beige;
+  height: 100px;
+  width: 150px;
+  border-radius: 3px;
+  position: relative;
+}
+
+
+@media screen and (min-width: 800px) {
+  div[class*="col-"] {
+    width: 100px;
+  }
+}
+.btn{
+  width: 100%;
+  height: 9vh;
+}
+.valasztasgomb{
+    display: block;
+    border: none;
+    width: 100%;
+    height: 25px;
+    background-color: white;
+}
+.botCombinations{
+  display: block;
+  border: none;
+  position: relative;
+  left: 25%;
+  width: 50%;
+  height: 25px;
+  background-color: white;
+}
+.dice{
+    position: relative;
+    top: 15%;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+#choices{ 
+  max-height: 120%;
+  width: 10vw;
+  background-color: blanchedalmond;
+  height: 100vh;
+}
+tr{
+  text-align: center;
+  align-items: center;
+}
+#cubes{
+  float: right;
+  position: relative;
+}
+.row{
+  margin-top: 10vh;
+}
