@@ -7,50 +7,11 @@ const COMBINATIONS = ["Szemét","Pár","Drill","Két Pár","Kis Póker","Full","
 var valaszthato = [1,0,0,0,0,0,0,0,0]
 var ertekek = [0,0,0,0,0,0,0,0,0]
 var gombErtek = 0
-var canvas = 0
-var ctx = 0
 function RandomNum(){
     randomNum = Math.floor(Math.random()*6)+1;
     return randomNum;
 }
-function DefineCanvas(canvas) {
-    canvas = document.getElementById(canvas);
-    canvas.width = 800;
-    canvas.height = 800;
-    ctx = canvas.getContext("2d");
-}
-function DrawCircle(x,y){
-    ctx.beginPath()
-    ctx.arc(x,y,50,5,5*Math.PI)
-    ctx.fill()
-    ctx.stroke() 
-}
-// Dobások rajzolása
-function DrawOne() {
-    DrawCircle(400,250)  
-}
-function DrawTwo(){
-    DrawCircle(600,50)
-    DrawCircle(200,450) 
-}
-function DrawThree() {
-    DrawTwo()
-    DrawOne()                
-}
-function DrawFour(){
-    DrawTwo()
-    DrawCircle(200,50) 
-    DrawCircle(600,450)
-}
-function DrawFive() {
-    DrawFour()
-    DrawOne()
-}
-function DrawSix() {
-    DrawFour()
-    DrawCircle(600,245) 
-    DrawCircle(200,245) 
-}
+
 function Szin(){
     gombok = document.getElementsByClassName("valasztasgomb");
     for (let i = 0; i < gombok.length; i++) {
@@ -257,26 +218,26 @@ function Check5Same() {
 function DrawDice(value){
     switch (value) {
         case 0:
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            dice.style.backgroundColor = "beige"
             break;
         case 1:
-            DrawOne()
+            dice.style.backgroundColor = "black"
             break;
         case 2:
-            DrawTwo()
+            dice.style.backgroundColor = "red"
             break;
         case 3:
-            DrawThree()
+            dice.style.backgroundColor = "green"
             break;
 
         case 4:
-            DrawFour()
+            dice.style.backgroundColor = "grey"
             break;
         case 5:
-            DrawFive()
+            dice.style.backgroundColor = "purple"
             break;
         case 6:
-            DrawSix()
+            dice.style.backgroundColor = "white"
             break;              
     }
 }
@@ -289,12 +250,12 @@ function PlayerRoll(){
     ertekek = [0,0,0,0,0,0,0,0,0]
     valaszthato = [1,0,0,0,0,0,0,0,0]
     for (let i = 0; i < 5; i++) {
-        DefineCanvas("PlayerCanvas"+i)
+        dice = document.getElementById("playerDice"+i);
         randomNum = RandomNum();
         playerRolls.push(randomNum)
         DrawDice(randomNum);
         
-        DefineCanvas("EnemyCanvas"+i)
+        dice = document.getElementById("enemyDice"+i);
         DrawDice(0);
     }
     document.getElementById("roll").disabled = true;
@@ -307,7 +268,7 @@ function EnemyRoll(){
     valaszthato = [1,0,0,0,0,0,0,0,0]
     turn = 1
     for (let i = 0; i < 5; i++) {
-        DefineCanvas("EnemyCanvas"+i)
+        dice = document.getElementById("enemyDice"+i);
         randomNum = RandomNum();
         enemyRolls.push(randomNum)
         DrawDice(randomNum); 
@@ -316,8 +277,6 @@ function EnemyRoll(){
     ertekek = [0,0,0,0,0,0,0,0,0]
     valaszthato = [0,0,0,0,0,0,0,0,0]
     Szin();
-    ertekek = [0,0,0,0,0,0,0,0,0]
-    valaszthato = [1,0,0,0,0,0,0,0,0]
     document.getElementById("botPoints").innerHTML = enemyPoints
 }
 function Submit(){
@@ -326,7 +285,7 @@ function Submit(){
     ertekek = [0,0,0,0,0,0,0,0,0]
     valaszthato = [0,0,0,0,0,0,0,0,0]
     for (let i = 0; i < 5; i++) {
-        DefineCanvas("PlayerCanvas"+i)
+        dice = document.getElementById("playerDice"+i);
         DrawDice(0);
     }
     Ellenorzes();
