@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="viewport" content="width=device-width, initial-scale=0.5">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Bootstrap -->
+
+  
+  <link rel="stylesheet" href="webstyle.css"> <!-- css kapcsolása a weblaphoz -->
+  
+  <title>Kockapóker web</title>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="slideshow-container">
+      
+      <div class="mySlides">
+        <img src="images/1.png">
+      </div>
+      
+      <div class="mySlides">
+        <img src="images/2.png">
+      </div>
+      
+      <div class="mySlides">
+        <img src="images/3.png">
+      </div>
+      
+      <a class="prev" onclick="plusSlides(-1)">❮</a>
+      <a class="next" onclick="plusSlides(1)">❯</a>
+      
+    </div>
+    
+    <div class="web-buttons">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+  </div>
+</body>
+
+<script src="webscript.js"></script> <!-- javascript kapcsolása a weblaphoz -->
+</html>
