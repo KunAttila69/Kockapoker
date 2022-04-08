@@ -15,8 +15,8 @@ function RandomNum(){
 }
 function DefineCanvas(canvas) {
     canvas = document.getElementById(canvas);
-    canvas.width = 800;
-    canvas.height = 800;
+    canvas.width = canvas.style.width;
+    canvas.height = canvas.style.height;
     ctx = canvas.getContext("2d");
 }
 function DrawCircle(x,y){
@@ -73,7 +73,12 @@ function Choose(gomb,gombNum) {
 }
 function HandleEnemy(){
     gombok = document.getElementsByClassName("botCombinations");
-    bestValue = Math.max(ertekek)
+    bestValue = 0
+    for (let i = 0; i < ertekek.length; i++) {
+        if(ertekek[i] >= bestValue){
+            bestValue = ertekek[i]
+        }
+    }
     if(bestValue != 0){
         bestCombination = ertekek.indexOf(bestValue)
         gombok[bestCombination].style.backgroundColor = "red";
@@ -291,8 +296,13 @@ function EnemyRoll(){
         enemyRolls.push(randomNum)
         DrawDice(randomNum); 
     }
-    Ellenorzes()
     HandleEnemy()
+    ertekek = [0,0,0,0,0,0,0,0,0]
+    valaszthato = [0,0,0,0,0,0,0,0,0]
+    Szin();
+    ertekek = [0,0,0,0,0,0,0,0,0]
+    valaszthato = [1,0,0,0,0,0,0,0,0]
+    document.getElementsByClassName("botCombinations").style.backgroundColor = "white"
 }
 function Submit(){
     playerRolls = []
