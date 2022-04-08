@@ -7,6 +7,7 @@ const COMBINATIONS = ["Szemét","Pár","Drill","Két Pár","Kis Póker","Full","
 var valaszthato = [1,0,0,0,0,0,0,0,0]
 var ertekek = [0,0,0,0,0,0,0,0,0]
 var gombErtek = 0
+var throws = 0
 function RandomNum(){
     randomNum = Math.floor(Math.random()*6)+1;
     return randomNum;
@@ -261,6 +262,7 @@ function PlayerRoll(){
     document.getElementById("roll").disabled = true;
     Ellenorzes();
     Szin();
+    throws++
 }
 function EnemyRoll(){
     enemyRolls = []
@@ -294,4 +296,14 @@ function Submit(){
     document.getElementById("submit").disabled = true;
     EnemyRoll()
     document.getElementById("playerPoints").innerHTML = playerPoints
+    if(throws >= 10){
+        if (playerPoints > enemyPoints) {
+            alert("Nyertél")
+            
+        }else if(playerPoints < enemyPoints) {
+            alert("Vesztettél")
+        }else{
+            alert("Döntetlen")
+        }
+    }
 }
