@@ -31,7 +31,7 @@ div[class*="col-"] {
 }
 .btn{
   width: 100%;
-  height: 75px;
+  height: 9vh;
 }
 .valasztasgomb{
     display: block;
@@ -51,42 +51,25 @@ div[class*="col-"] {
 }
 .dice{
     position: relative;
-    top: 20%;
+    top: 15%;
     width: 100%;
     height: 100%;
     background-size: cover;
 }
-
-#score{
-  float:left;
-  margin-top: 0vh;
-}
-
-.table{ 
-  
-  width: 100px;
-  height: 50px;
+#choices{ 
+  max-height: 120%;
+  width: 10vw;
   background-color: blanchedalmond;
-  position: relative;
-  
-  
+  height: 100vh;
 }
-
-.choices{
-  top: -50px;
-  left: 0%;
-}
-
 tr{
   text-align: center;
   align-items: center;
 }
-
 #cubes{
   float: right;
   position: relative;
 }
-
-#transparent{
-    opacity: 0;
+.row{
+  margin-top: 10vh;
 }
