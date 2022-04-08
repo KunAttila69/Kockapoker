@@ -75,9 +75,11 @@ canvas{
 
 tr{
   text-align: center;
+  align-items: center;
 }
 
 #cubes{
   float: right;
   position: relative;
 }
+
