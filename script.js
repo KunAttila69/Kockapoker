@@ -219,26 +219,25 @@ function Check5Same() {
 function DrawDice(value){
     switch (value) {
         case 0:
-            dice.style.backgroundColor = "beige"
+            dice.style.backgroundImage = "none"
             break;
         case 1:
-            dice.style.backgroundColor = "black"
+            dice.style.backgroundImage = "url('dice1.png')"
             break;
         case 2:
-            dice.style.backgroundColor = "red"
+            dice.style.backgroundImage = "url('dice2.png')"
             break;
         case 3:
-            dice.style.backgroundColor = "green"
+            dice.style.backgroundImage = "url('dice3.png')"
             break;
-
         case 4:
-            dice.style.backgroundColor = "grey"
+            dice.style.backgroundImage = "url('dice4.png')"
             break;
         case 5:
-            dice.style.backgroundColor = "purple"
+            dice.style.backgroundImage = "url('dice5.png')"
             break;
         case 6:
-            dice.style.backgroundColor = "white"
+            dice.style.backgroundImage = "url('dice6.png')"
             break;              
     }
 }
