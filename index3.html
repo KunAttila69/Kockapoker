@@ -20,17 +20,19 @@
                 <th>Játékos</th>
                 <th>Gép</th>
             </tr>
-             <tr>
+            <tr>
                 <td>Pontok száma</td>
                 <td>#</td>
                 <td>#</td>
-               </tr>
-            
-            </table>
-            <p>EZt töröld ki</p>
-            
+            </tr>
 
-        </div>        
+        </table>
+        <p id="transparent">a
+
+        </p>
+
+
+    </div>
     <div class="container" id="cubes">
         <div class="row">
             <div class="col-xl-1 col-md-1 col-sm-1 col-xs-1 mx-auto"><canvas id="EnemyCanvas0"></canvas></div>
@@ -40,71 +42,91 @@
             <div class="col-xl-1 col-md-1 col-sm-1 col-xs-1 mx-auto"><canvas id="EnemyCanvas4"></canvas></div>
         </div>
     </div>
-   
+
     <div class="container row">
-         
-          </div> 
-        <div class="table-responsive-md">
-            
-            <table class="table">
-                <tr >
-                    <th>#</th>
-                    <th>Játékos</th>
-                    <th>Gép</th>
-                </tr>
-                <tr>
-                    <td id="combination1">Szemét(0)</td>
-                    <td><button class="valasztasgomb" onclick="Choose(this,0)"></button></td>
-                    <td><div class="botCombinations"></div></td>
-                </tr>
-                <tr >
-                    <td id="combination2">Pár(0)</td>
-                    <td><button class="valasztasgomb" onclick="Choose(this,1)"></button></td>
-                    <td><div class="botCombinations"></div></td>
-                </tr>
-                <tr>
-                    <td id="combination3">Drill(0)</td>
-                    <td><button class="valasztasgomb" onclick="Choose(this,2)"></button></td>
-                    <td><div class="botCombinations"></div></td>
-                </tr>
-                <tr >
-                    <td id="combination4">Két Pár(0)</td>
-                    <td><button class="valasztasgomb" onclick="Choose(this,3)"></button></td>
-                    <td><div class="botCombinations"></div></td>
-                </tr>
-                <tr >
-                    <td id="combination5">Kis Póker(0)</td>
-                    <td><button class="valasztasgomb" onclick="Choose(this,4)"></button></td>
-                    <td><div class="botCombinations"></div></td>
-                </tr>
-                <tr>
-                    <td id="combination6">Full(0)</td>
-                    <td><button class="valasztasgomb" onclick="Choose(this,5)"></button></td>
-                    <td><div class="botCombinations"></div></td>
-                </tr>
-                <tr >
-                    <td id="combination7">Kis Sor(0)</td>
-                    <td><button class="valasztasgomb" onclick="Choose(this,6)"></button></td>
-                    <td><div class="botCombinations"></div></td>
-                </tr>
-                <tr>
-                    <td id="combination8">Nagy Sor(0)</td>
-                    <td><button class="valasztasgomb" onclick="Choose(this,7)"></button></td>
-                    <td><div class="botCombinations"></div></td>
-                </tr>
-                <tr>
-                    <td id="combination9">Nagy Póker(0)</td>
-                    <td><button class="valasztasgomb" onclick="Choose(this,8)"></button></td>
-                    <td><div class="botCombinations"></div></td>
-                </tr>
-                <tr>
-                   <td colspan="2" class="text-center"> <button type="button" id="roll" onclick="PlayerRoll()" class="btn btn-secondary">Dobás</button></td>
-                   <td colspan="1" class="text-center"> <button type="button" id="submit" disabled="true" onclick="Submit()" class="btn btn-secondary">Válasz megerősítése</button></td>
-                </tr>
-            </table>
-        </div>
+
     </div>
-    
+    <div class="table-responsive-md">
+
+        <table class="table" id="choices">
+            <tr>
+                <th>#</th>
+                <th>Játékos</th>
+                <th>Gép</th>
+            </tr>
+            <tr>
+                <td id="combination1">Szemét(0)</td>
+                <td><button class="valasztasgomb" onclick="Choose(this,0)"></button></td>
+                <td>
+                    <div class="botCombinations"></div>
+                </td>
+            </tr>
+            <tr>
+                <td id="combination2">Pár(0)</td>
+                <td><button class="valasztasgomb" onclick="Choose(this,1)"></button></td>
+                <td>
+                    <div class="botCombinations"></div>
+                </td>
+            </tr>
+            <tr>
+                <td id="combination3">Drill(0)</td>
+                <td><button class="valasztasgomb" onclick="Choose(this,2)"></button></td>
+                <td>
+                    <div class="botCombinations"></div>
+                </td>
+            </tr>
+            <tr>
+                <td id="combination4">Két Pár(0)</td>
+                <td><button class="valasztasgomb" onclick="Choose(this,3)"></button></td>
+                <td>
+                    <div class="botCombinations"></div>
+                </td>
+            </tr>
+            <tr>
+                <td id="combination5">Kis Póker(0)</td>
+                <td><button class="valasztasgomb" onclick="Choose(this,4)"></button></td>
+                <td>
+                    <div class="botCombinations"></div>
+                </td>
+            </tr>
+            <tr>
+                <td id="combination6">Full(0)</td>
+                <td><button class="valasztasgomb" onclick="Choose(this,5)"></button></td>
+                <td>
+                    <div class="botCombinations"></div>
+                </td>
+            </tr>
+            <tr>
+                <td id="combination7">Kis Sor(0)</td>
+                <td><button class="valasztasgomb" onclick="Choose(this,6)"></button></td>
+                <td>
+                    <div class="botCombinations"></div>
+                </td>
+            </tr>
+            <tr>
+                <td id="combination8">Nagy Sor(0)</td>
+                <td><button class="valasztasgomb" onclick="Choose(this,7)"></button></td>
+                <td>
+                    <div class="botCombinations"></div>
+                </td>
+            </tr>
+            <tr>
+                <td id="combination9">Nagy Póker(0)</td>
+                <td><button class="valasztasgomb" onclick="Choose(this,8)"></button></td>
+                <td>
+                    <div class="botCombinations"></div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-center"> <button type="button" id="roll" onclick="PlayerRoll()"
+                        class="btn btn-secondary">Dobás</button></td>
+                <td colspan="1" class="text-center"> <button type="button" id="submit" disabled="true"
+                        onclick="Submit()" class="btn btn-secondary">Válasz megerősítése</button></td>
+            </tr>
+        </table>
+    </div>
+    </div>
+    <hr>
     <div class="container" id="cubes">
         <div class="row">
             <div id="playerCell1" class="col-xl-1 col-md-3 mx-auto"><canvas id="PlayerCanvas0"></canvas></div>
@@ -115,7 +137,7 @@
         </div>
 
     </div>
-   
+
 
 </body>
 
